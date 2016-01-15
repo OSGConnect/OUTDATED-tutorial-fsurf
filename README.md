@@ -7,10 +7,10 @@
 the `fsurf` workflow that utlizes freesurfer.  `fsurf` is a complete pipe-line for the brain image analysis on distributed high throughput 
 computing platform. The advantages of using  `fsurf` are
 
-(1) No need to worry about the job schedular ( on OSG, no need of writing the condor job description files)
-(2) Provides a complete pipe-line to analyze the MRI image 
-(3) No need to worry about the data transfers
-(4) Perfom analysis on multiple subjects via distributed high throughput computing
+     (1) No need to worry about the job schedular ( on OSG, no need of writing the condor job description files)
+     (2) Provides a complete pipe-line to analyze the MRI image 
+     (3) No need to worry about the data transfers
+     (4) Perfom analysis on multiple subjects via distributed high throughput computing
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-fsurfer/master/Figs/freesurfer_image_from_net.png )
 
