@@ -37,11 +37,13 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ## Process a Scan
 
-Now we will process a scan of `test_defaced.mgz`.  A typical image analysis requires multiple-stages via  autorecon1, autorecon2, 
-and autorecon3.  All the above three steps are efficiently performed by `fsurf` as 
+Now we will process a scan of `test_defaced.mgz`.  A typical image analysis requires doing calculations on multiple-stages via  
+autorecon1, autorecon2, and autorecon3.  All these three steps are efficiently handled by `fsurf`. To analyze, 
 
      $ fsurf  --submit --subject test --dir $PWD
 
+In the MRI file `test_defaced.mgz`, the prefix `test` is the name of the subject which could be a number or name while the format 
+is `mgz` file format. 
 
 ### List Workflows
 
