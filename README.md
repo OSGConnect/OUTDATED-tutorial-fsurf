@@ -12,7 +12,7 @@ computing platform. The advantages of using  `fsurf` are
      (3) No need to worry about the data transfers
      (4) Perfom analysis on multiple subjects via distributed high throughput computing
 
-![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-fsurfer/master/Figs/freesurfer_image_from_net.png )
+![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
 ## Tutorial files
 
