@@ -18,7 +18,7 @@ computing platform. The advantages of using  `fsurf` are
 
 It is easiest to start with the `tutorial` command. In the command prompt, type
 
-     $ tutorial fsurf # Copies input image file 
+     $ tutorial fsurf             # Copies input image file 
 
 This will create a directory `tutorial-fsurf`. Inside the directory, you will see the following files
 
