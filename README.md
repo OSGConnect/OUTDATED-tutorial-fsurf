@@ -3,12 +3,11 @@
  
 ## Overview
 
-[FreeSurfer](http://freesurfer.net/) is software package to analyze the MRI images of human brains. Here, we introdue you to 
-the `fsurf` workflow that utlizes freesurfer.  `fsurf` is a complete pipe-line for the brain image analysis on distributed high throughput 
+[FreeSurfer](http://freesurfer.net/) is software package to analyze the MRI images of human brains. Here, we introdue the `fsurf` workflow that utlizes FreeSurfer.  `fsurf` is a complete pipeline for the brain image analysis on distributed high throughput 
 computing platform. The advantages of using  `fsurf` are
 
-     (1) No need to worry about the job schedular ( on OSG, no need of writing the condor job description files)
-     (2) Provides a complete pipe-line to analyze the MRI image 
+     (1) No need to worry about the job scheduler 
+     (2) Provides a complete pipeline to analyze the MRI image 
      (3) No need to worry about the data transfers
      (4) Perfom analysis on multiple subjects via distributed high throughput computing
 
@@ -20,7 +19,7 @@ It is easiest to start with the `tutorial` command. In the command prompt, type
 
      $ tutorial fsurf             # Copies input image file 
 
-This will create a directory `tutorial-fsurf`. Inside the directory, you will see the following files
+This will create a directory `tutorial-fsurf`. Inside the directory you will see the following file:
 
     test_defaced.mgz              # Input brain MRI file
 
@@ -37,12 +36,12 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ## Process a Scan
 
-Now we will process a scan of `test_defaced.mgz`.  A typical image analysis requires doing calculations on multiple-stages via  
-autorecon1, autorecon2, and autorecon3.  All these three steps are efficiently handled by `fsurf`. To analyze, 
+Now we will process a scan file `test_defaced.mgz`.  A typical image analysis requires doing calculations on multiple-stages via  
+autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. To analyze: 
 
      $ fsurf  --submit --subject test --dir $PWD
 
-In the MRI file `test_defaced.mgz`, the prefix `test` is the name of the subject which could be a number or name while the format 
+In the MRI file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format 
 is `mgz` file format. 
 
 ### List Workflows
