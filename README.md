@@ -41,40 +41,54 @@ A typical image analysis requires doing calculations on multiple-stages via auto
      $ fsurf  --submit --subject test --dir $PWD
 
 In the MRI file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format 
-is `mgz` file format. 
+is `mgz` file format. We need to supply the image that are deidentified and defaced. The file `test_defaced.mgz` is already deidentified and defaced, so `y` to the following questions. 
+
+     Has the MRI data been deidentified (This is required) [y/n]?
+     y
+     Has the MRI data been defaced (This is recommended) [y/n]? 
+     y
+
+After typing `y` to the above two questions, `fsurf` creates and submits the workflow 
+
+     Creating and submitting workflow
+     Workflow submitted with an id of 20160119T100055-0600
+
+The id of your workflow is `20160119T100055-0600`. The id is useful for checking, removing and checking the output of the workflow. 
+
 
 ### List Workflows
 
 Run the command below to get a list of ids for your workflows that  are running or have already  completed:
 
-    $ fsurf --list 
+     $ fsurf --list 
+     Current workflows
+     Subject    Workflow             Submit time          Cores Used      Status    
+     test       20160119T100055-0600 10:00 01-19-2016     2               Running   
 
-
-      Current workflows
-      Subject	Workflow         	Submit time      	Cores Used  	Status
-      test    	20160104T112401-0600    11:24 01-04-2016 	2           	Running
 
 ### Get output from a completed workflow
 
 Run the command below to get the output from a workflow that’s completed:
  
-     $ fsurf --output --id WORKFLOW
+     $ fsurf --output --id 20160119T100055-0600
 
-Depending on the computer resources available this will typically require several hours to complete.  The output will be saved as an archive in the current working directory: WORKFLOW.tar.bz2 . You can extract all the files in the archive using: 
+Depending on the computer resources available this will typically require several hours to complete.  The output will be saved as an archive in the current working directory: 20160119T100055-0600.tar.bz2 . You can extract all the files in the archive using: 
 
-    $ tar -jxvf WORKFLOW.tar.bz2
-  
-    $ fsurf --output --id 20160104T112401-0600
-    $ tar -jxvf 20160104T112401-0600.tar.bz2
+    $ tar -jxvf 20160119T100055-0600.tar.bz2
+ 
+ Similarly, you get the output of a completed  workflow with id `WorkflowID` 
+ 
+     $ fsurf --output -id WorkflowID
+     $ tar -jxvf WorkflowID.tar.bz2
 
 ### Remove a running or completed workflow
 
 Run on the command line to remove an existing workflow:
    
-    $ fsurf --remove --id WORKFLOW
+    $ fsurf --remove --id WorkflowID
   
-    $ fsurf --remove --id 20160104T112401-0600
-    Workflow 20160104T112401-0600 removed successfully
+    $ fsurf --remove --id 20160119T100055-0600
+    Workflow 20160119T100055-0600 removed successfully
     Waiting for running jobs to be removed...
     Jobs removed, removing workflow directory
 
