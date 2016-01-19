@@ -36,12 +36,12 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ## Process a Scan
 
-A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. To analyze the MRI file `test_defaced.mgz`
+A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
+
 
      $ fsurf  --submit --subject test --dir $PWD
 
-In the MRI file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format 
-is `mgz` file format. We need to supply the image that are deidentified and defaced. The file `test_defaced.mgz` is already deidentified and defaced, so `y` to the following questions. 
+Free surfer requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
 
      Has the MRI data been deidentified (This is required) [y/n]?
      y
