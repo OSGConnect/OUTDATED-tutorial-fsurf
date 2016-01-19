@@ -68,7 +68,14 @@ Run the command below to get a list of ids for your workflows that  are running 
 
 ### Get output from a completed workflow
 
-Run the command below to get the output from a workflow that’s completed:
+See the workflow is completed. In the event of completion, the staus of the workflow should be `Success` as follows
+
+     $ fsurf --list 
+     Current workflows
+     Subject    Workflow             Submit time          Cores Used      Status    
+     test       20160119T100055-0600 10:00 01-19-2016     2               Success   
+
+Run the command below to get the output of the completed workflow `20160119T100055-0600`:
  
      $ fsurf --output --id 20160119T100055-0600
 
@@ -76,7 +83,7 @@ Depending on the computer resources available this will typically require severa
 
     $ tar -jxvf 20160119T100055-0600.tar.bz2
  
- Similarly, you get the output of a completed  workflow with id `WorkflowID` 
+ Similarly, you get the output of any completed  workflow with id `WorkflowID` 
  
      $ fsurf --output -id WorkflowID
      $ tar -jxvf WorkflowID.tar.bz2
