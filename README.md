@@ -17,7 +17,7 @@ computing platform. The advantages of using  `fsurf` are
 
 It is easiest to start with the `tutorial` command. In the command prompt, type
 
-     $ tutorial fsurf             # Copies input image file 
+     $ tutorial FreeSurferWorkflow             # Copies input image file 
 
 This will create a directory `tutorial-fsurf`. Inside the directory you will see the following file:
 
@@ -36,8 +36,7 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ## Process a Scan
 
-Now we will process a scan file `test_defaced.mgz`.  A typical image analysis requires doing calculations on multiple-stages via  
-autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. To analyze: 
+A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. To analyze the MRI file `test_defaced.mgz`
 
      $ fsurf  --submit --subject test --dir $PWD
 
