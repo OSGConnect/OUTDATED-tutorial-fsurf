@@ -94,7 +94,7 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
     Waiting for running jobs to be removed...
     Jobs removed, removing workflow directory
 
-This will not effect the files you have fetched with fsurf --output --id WorflowID.
+This will not effect the files you have fetched with fsurf --output --id WorkflowID.
 
 ## Getting Help
 For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
