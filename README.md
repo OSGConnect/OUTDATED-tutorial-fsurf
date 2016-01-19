@@ -86,13 +86,15 @@ Depending on the computer resources available this will typically require severa
 Run on the command line to remove an existing workflow:
    
     $ fsurf --remove --id WorkflowID
-  
+
+For example, to remove a running worflow with an id `20160119T100055-0600`, type
+
     $ fsurf --remove --id 20160119T100055-0600
     Workflow 20160119T100055-0600 removed successfully
     Waiting for running jobs to be removed...
     Jobs removed, removing workflow directory
 
-This will not effect the files you have fetched with fsurf --output --id WORKFLOW.
+This will not effect the files you have fetched with fsurf --output --id WorflowID.
 
 ## Getting Help
 For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
