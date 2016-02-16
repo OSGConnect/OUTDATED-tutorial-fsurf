@@ -6,9 +6,9 @@
 [FreeSurfer](http://freesurfer.net/) is software package to analyze the MRI images of human brains. Here, we introdue the `fsurf` workflow that utlizes FreeSurfer.  `fsurf` is a complete pipeline for the brain image analysis on distributed high throughput 
 computing platform. The advantages of using  `fsurf` are
 
-     (1) No need to worry about the job schedular 
+     (1) No need to worry about the job schedular and write a job description file
      (2) Provides a complete pipeline to analyze the MRI image 
-     (3) No need to worry about the data transfers
+     (3) No need to worry about how to do the data transfers from/to the remote worker machines
      (4) Perfom analysis on multiple subjects via distributed high throughput computing
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
@@ -43,22 +43,20 @@ A typical image analysis requires doing calculations on multiple-stages via auto
 
 Free surfer requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
 
-     Has the MRI data been deidentified (This is required) [y/n]?
-     y
-     Has the MRI data been defaced (This is recommended) [y/n]? 
-     y
+     Has the MRI data been deidentified (This is required) [y/n]? y
+     Has the MRI data been defaced (This is recommended) [y/n]? y
 
 After typing `y` to the above two questions, `fsurf` creates and submits the workflow 
 
      Creating and submitting workflow
      Workflow submitted with an id of 20160119T100055-0600
 
-The id of your workflow is `20160119T100055-0600`. The id is useful for checking, removing and checking the output of the workflow. 
+The id of your workflow is `20160119T100055-0600`. The id is useful for checking, removing and getting the output of the workflow. 
 
 
 ### List Workflows
 
-Run the command below to get a list of ids for your workflows that  are running or have already  completed:
+Run the command below to get a list of ids for your workflows that are running or have already  completed:
 
      $ fsurf --list 
      Current workflows
