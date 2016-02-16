@@ -25,7 +25,6 @@ This will create a directory `tutorial-fsurf`. Inside the directory you will see
 
 Here, `test_defaced.mgz` is the brain MRI file. 
 
-
 ## Initial configuration
 
 You need to set up the `fsurf` tool. Run on the command line:
