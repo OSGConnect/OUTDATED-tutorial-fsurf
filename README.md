@@ -33,9 +33,7 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ##  Fsurf setup on your laptop or desktop 
 
-For all of the following commands, you can specify an username using the --user argument and the password using --password.  E.g. 
-
-  fsurf --submit --subject 182 --user myuser --password mypassword
+Install `fsurf` on your laptop or desktop using the `curl` command which is a utility to copy the content of the url.  
 
 ###   Installing FSurf client for Linux/Unix systems
 
@@ -60,9 +58,11 @@ While using the local laptop or desktop version of fsurf, you  specify username 
 
 A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
 
-Get the example MRI file by 
+Get the sample MRI file by 
+     curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
 
-    $ wget "http:// "
+the file `test_defaced.mgz` is the defaced sample file. 
+
 
 Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
 
