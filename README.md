@@ -30,10 +30,9 @@ You need to set up the `fsurf` tool. Run on the command line:
 
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in. 
 
-##  Setup on your laptop or desktop as a remote client
+##  Setup on laptop or desktop
 
-Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) with the `curl` command. `curl` is a utility to copy the content of 
-the url. Open a terminal window and then run:
+Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
 
       curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
       chmod +x fsurf 
@@ -45,7 +44,7 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
 
-##  Check the setup 
+##  Check the setup of fsurf 
 
 To check the setup of `fsurf`, invoke the help argument. 
 
