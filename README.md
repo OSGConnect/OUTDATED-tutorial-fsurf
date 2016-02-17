@@ -108,19 +108,23 @@ This will not effect the files you have fetched with fsurf --output --id Workflo
 
 ##  How to deface images 
 
-FSurf requires as input an MRI scan file in the usual “.mgz” format.  Each scan file must be deidentified and defaced.  You can use your local FreeSurfer installation to prepare your scans.  For example, use this command sequence to convert a DICOM formatted image set to SUBJECT_defaced.mgz:
+Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced.  You can use your local FreeSurfer 
+installation to prepare your scans.  For example, use this command sequence to convert a DICOM formatted image `001.mgz` 
+to `SUBJECT_defaced.mgz`. 
 
-      cd $FREESURFER_HOME/average
-      recon-all -subject SUBJECT -i PATH_TO_ONE_OF_THE_SLICES
-      mri_deface ../subjects/SUBJECT/mri/orig/001.mgz               \
+      $ cd $FREESURFER_HOME/average
+      $ recon-all -subject SUBJECT -i PATH_TO_ONE_OF_THE_SLICES
+      $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz               \
                  talairach_mixed_with_skull.gca                     \
                  face.gca                                           \
                  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
 
-If the mri_deface program cannot find the needed “*.gca” files (the standard FreeSurfer parameter files), you can fetch and unzip them:
+Here, `001.mgz` is the original scan and the `SUBJECT_defaced.mgz` is the dafaced file. 
 
-  wget "http://stash.osgconnect.net/@freesurfer/face.gca"
-  wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
+If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), you can fetch and unzip them:
+
+     $ wget "http://stash.osgconnect.net/@freesurfer/face.gca"
+     $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
 
 ## Getting Help 
 For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
