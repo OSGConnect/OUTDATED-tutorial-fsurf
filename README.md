@@ -16,23 +16,18 @@ section on "How to ananymize and deidentify images".
 
 Adding test lines from NAMD 
 
-## NAMD tutorial files
-
+##  Fsurf tutorial files
 
 It is easiest to start with the `tutorial` command. In the command prompt, type
-	 $ tutorial namd # Copies input and script files to the directory tutorial-namd.
- 
-This will create a directory `tutorial-namd`. Inside the directory, you will see the following files
 
-	namd_run.submit            # Condor job submission script file.
-	namd_run.sh                # Job execution script file.
-	ubq_gbis_eq.conf           # Input configuration for NAMD.
-	ubq.pdb                    # Input pdb file for NAMD.
-	ubq.psf                    # Input file for NAMD.
-	par_all27_prot_lipid.inp   # Parameter file for NAMD.
+     $ tutorial fsurf            # Copies input image file
 
+This will create a directory `tutorial-fsurf`. Inside the directory you will see the following file:
 
-Here, `namd_run.submit` and `namd_run.sh` are the script files related to job submission and the other files are required by the NAMD software. The details regarding the preparation of input files for NAMD is available external website for NAMD at UIUC. 
+     test_defaced.mgz              # Input brain MRI file
+
+Here, `test_defaced.mgz` is the brain MRI file.
+
 
 
 
