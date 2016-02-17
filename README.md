@@ -18,7 +18,7 @@ Data privacy note: The fsurf tool is not HIPPA compliant. Images must be anonymi
 section `How to deface images` at the end of this tutorial.  
 
 
-##  Fsurf setup on login.osgconnect.net
+##  Setup on login.osgconnect.net
 
 First, ssh to the OSG Connect's login node
 
@@ -30,7 +30,7 @@ You need to set up the `fsurf` tool. Run on the command line:
 
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in. 
 
-##  Fsurf setup on your laptop or desktop as a remote client
+##  Setup on your laptop or desktop as a remote client
 
 Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) with the `curl` command. `curl` is a utility to copy the content of 
 the url. Open a terminal window and then run:
@@ -45,9 +45,9 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
 
-##  Check fsuf setup 
+##  Check the setup 
 
-Now do you a simple test to find out your initial setup of `fsurf` is okay by invoking the help argument. 
+To check the setup of `fsurf`, invoke the help argument. 
 
       $ fsurf --help
 
