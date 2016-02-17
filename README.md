@@ -31,18 +31,20 @@ You need to set up the `fsurf` tool. Run on the command line:
 
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in. 
 
-##  Fsurf setup on your laptop or desktop 
+##  Fsurf setup on your laptop or desktop as a remote client
 
-Install `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) using the `curl` command which is a utility to copy the content of 
+Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) with the `curl` command. `curl` is a utility to copy the content of 
 the url. Open a terminal window and then run:
 
       curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
       chmod +x fsurf 
 
-While using the local laptop or desktop version of fsurf, you  specify username using the --user argument and the password using --password.  E.g. 
+While using the local laptop or desktop version of fsurf, you  specify `username` using the `--user` argument and the `password` 
+using `--password`.  For example,  
 
       fsurf --submit --subject test --user myuser --password mypassword
 
+the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
 
 ##  Process a Scan
 
