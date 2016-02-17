@@ -9,13 +9,13 @@
      (2) Handles data transfer to and from remote worker nodes
      (3) Provides a complete pipeline to analyze an MRI image 
 
-You may set up the `fsurf` workflow on your `laptop (desktop)` or on the `login.osgconnect.net`. Both the setup 
-allow you to submit the job on OSG machines. 
+You may set up the `fsurf` workflow on your `laptop (desktop)` or on the `login.osgconnect.net`. Both setups allow you to submit the job 
+on OSG machines. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
-Important data privacy note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section `How to deface images` at the end of the tutorial.  
+Data privacy note: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
+section `How to deface images` at the end of this tutorial.  
 
 
 ##  Fsurf setup on login.osgconnect.net
@@ -45,6 +45,37 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
 
+##  Check fsuf setup 
+
+Now do you a simple test to find out your initial setup of `fsurf` is okay by invoking the help argument. 
+
+      $ fsurf --help
+
+If you see the following message, the setup of `fsurf` is fine. 
+
+      usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
+                   [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
+                   [--dir INPUT_DIRECTORY] [--dualcore] [--verbose]
+
+      Process freesurfer information
+
+      optional arguments:
+        -h, --help            show this help message and exit
+        --version             show program's version number and exit
+        --submit              Submit job for processing
+        --list                List current jobs
+        --status              Get status of a specified job
+        --remove              Remove specified job
+        --output              Get output from specified job
+        --log                 Get log file for specified job
+        --id WORKFLOW_ID      id that specifies job
+        --subject SUBJECT     Subject id to process
+        --dir INPUT_DIRECTORY
+                        directory containing input file
+        --dualcore            Use 2 cores to process certain steps
+        --verbose             Enable verbose output for status action
+
+
 ##  Process a Scan
 
 A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
@@ -54,7 +85,6 @@ Get the sample MRI file by
      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
 
 the file `test_defaced.mgz` is the defaced sample file. 
-
 
 Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
 
@@ -123,7 +153,7 @@ This will not effect the files you have fetched with fsurf --output --id Workflo
 
 ##  How to deface images 
 
-Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced.  You can use your local FreeSurfer 
+Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `freesurfer`
 installation to prepare your scans.  For example, use this command sequence to convert a DICOM formatted image `001.mgz` 
 to `SUBJECT_defaced.mgz`. 
 
