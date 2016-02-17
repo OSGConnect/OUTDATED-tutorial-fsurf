@@ -14,3 +14,17 @@
 Important note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
 section on "How to ananymize and deidentify images". 
 
+## Tutorial files
+
+It is easiest to start with the `tutorial` command. In the command prompt, type
+
+    $ tutorial fsurf            # Copies input image file 
+
+This will create a directory `tutorial-fsurf`. Inside the directory you will see the following file:
+
+    test_defaced.mgz              # Input brain MRI file
+
+Here, `test_defaced.mgz` is the brain MRI file. 
+
+
+

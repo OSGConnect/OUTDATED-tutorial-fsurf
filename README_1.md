@@ -13,6 +13,10 @@ computing platform. The advantages of using  `fsurf` are
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
+Important note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
+section on "How to ananymize and deidentify images". 
+
+
 ## Tutorial files
 
 It is easiest to start with the `tutorial` command. In the command prompt, type
