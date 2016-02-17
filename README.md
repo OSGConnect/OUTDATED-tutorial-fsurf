@@ -35,19 +35,12 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 Install `fsurf` on your laptop or desktop using the `curl` command which is a utility to copy the content of the url.  
 
-###   Installing FSurf client for Linux/Unix systems
+###   Linux/Unix/Mac OS X systems
 
-Open a terminal window and then run:
+To install fsurf, open a terminal window and then run:
 
   curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
   chmod +x fsurf 
-
-###  Installing FSurf client for Mac OS X systems
-
-Open a terminal window and then run:
-
-      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
-      chmod +x fsurf 
 
 While using the local laptop or desktop version of fsurf, you  specify username using the --user argument and the password using --password.  E.g. 
 
@@ -59,6 +52,7 @@ While using the local laptop or desktop version of fsurf, you  specify username 
 A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
 
 Get the sample MRI file by 
+
      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
 
 the file `test_defaced.mgz` is the defaced sample file. 
