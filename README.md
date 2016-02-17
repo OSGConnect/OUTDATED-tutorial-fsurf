@@ -3,7 +3,7 @@
  
 ## Overview
 
-[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies FreeSurfer computation on the Open Science Grid. The advantages of using  `fsurf` are:
+[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies FreeSurfer computation on the Open Science Grid (OSG). The advantages of using  `fsurf` are:
 
      (1) Handles job submission to OSG using appropriate flags for multi-core job slots
      (2) Handles data transfer to and from remote worker nodes
@@ -12,36 +12,59 @@
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
 
-Important note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section on [How to deface images](## How to deface images) at the end of the tutorial.  
+Important data privacy note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
+section `How to deface images` at the end of the tutorial.  
 
-Adding test lines from NAMD 
-
-##  Fsurf tutorial files
-
-It is easiest to start with the `tutorial` command. In the command prompt, type
-
-     $ tutorial fsurf            # Copies input image file
-
-This will create a directory `tutorial-fsurf`. Inside the directory you will see the following file:
-
-     test_defaced.mgz              # Input brain MRI file
-
-Here, `test_defaced.mgz` is the brain MRI file.
+Once you have defaced the MRI file, you are ready to use `fsurf` on OSG. You may set up the `fsurf` workflow on your laptop (desktop) or 
+on the login.osgconnect.net. Both the setup allow you to submit the job on OSG machines. 
 
 
+##  Fsurf setup on login.osgconnect.net
 
-##  Initial configuration
+First, ssh to the OSG-Connect submit node
 
+     $ ssh username@login.osgconnect.net
+     
 You need to set up the `fsurf` tool. Run on the command line:
 
      $ fsurf-config
 
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in. 
 
+##  Fsurf setup on your laptop or desktop 
+
+For all of the following commands, you can specify an username using the --user argument and the password using --password.  E.g. 
+
+  fsurf --submit --subject 182 --user myuser --password mypassword
+
+###   Installing FSurf client for Linux/Unix systems
+
+Open a terminal window and then run:
+
+  curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
+  chmod +x fsurf 
+
+###  Installing FSurf client for Mac OS X systems
+
+Open a terminal window and then run:
+
+      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
+      chmod +x fsurf 
+
+While using the local laptop or desktop version of fsurf, you  specify username using the --user argument and the password using --password.  E.g. 
+
+      fsurf --submit --subject test --user myuser --password mypassword
+
+
 ##  Process a Scan
 
-A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
+A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
+
+Get the example MRI file by 
+
+    $ wget "http:// "
+
+Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
 
 
      $ fsurf  --submit --subject test --dir $PWD
