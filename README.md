@@ -33,10 +33,8 @@ This command may be placed at the end of your .bashrc file so that it will autom
 
 ##  Fsurf setup on your laptop or desktop 
 
-Install `fsurf` on your laptop or desktop using the `curl` command which is a utility to copy the content of the url.  
-
-
-To install fsurf on Linux/Unix/Mac OS X system, open a terminal window and then run:
+Install `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) using the `curl` command which is a utility to copy the content of 
+the url. Open a terminal window and then run:
 
   curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
   chmod +x fsurf 
