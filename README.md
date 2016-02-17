@@ -13,7 +13,7 @@
 
 
 Important note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section on [How to deface images](How to deface images) at the end of the tutorial.  
+section on [How to deface images](#How to deface images) at the end of the tutorial.  
 
 Adding test lines from NAMD 
 
