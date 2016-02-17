@@ -18,10 +18,9 @@ Important data privacy note:  The fsurf tool is  not HIPPA compliant. Images mus
 section `How to deface images` at the end of the tutorial.  
 
 
-
 ##  Fsurf setup on login.osgconnect.net
 
-First, ssh to the OSG-Connect submit node
+First, ssh to the OSG Connect's login node
 
      $ ssh username@login.osgconnect.net
      
@@ -136,7 +135,7 @@ to `SUBJECT_defaced.mgz`.
                  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
 
 
-If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), you can fetch and unzip them:
+If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), fetch and unzip them:
 
      $ wget "http://stash.osgconnect.net/@freesurfer/face.gca"
      $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
