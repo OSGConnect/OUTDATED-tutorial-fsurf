@@ -36,8 +36,8 @@ This command may be placed at the end of your .bashrc file so that it will autom
 Install `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) using the `curl` command which is a utility to copy the content of 
 the url. Open a terminal window and then run:
 
-  curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
-  chmod +x fsurf 
+      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
+      chmod +x fsurf 
 
 While using the local laptop or desktop version of fsurf, you  specify username using the --user argument and the password using --password.  E.g. 
 
