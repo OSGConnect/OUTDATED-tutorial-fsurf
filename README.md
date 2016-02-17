@@ -9,14 +9,14 @@
      (2) Handles data transfer to and from remote worker nodes
      (3) Provides a complete pipeline to analyze an MRI image 
 
-![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
+You may set up the `fsurf` workflow on your `laptop (desktop)` or on the `login.osgconnect.net`. Both the setup 
+allow you to submit the job on OSG machines. 
 
+![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
 Important data privacy note:  The fsurf tool is  not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
 section `How to deface images` at the end of the tutorial.  
 
-Once you have defaced the MRI file, you are ready to use `fsurf` on OSG. You may set up the `fsurf` workflow on your laptop (desktop) or 
-on the login.osgconnect.net. Both the setup allow you to submit the job on OSG machines. 
 
 
 ##  Fsurf setup on login.osgconnect.net
@@ -135,7 +135,6 @@ to `SUBJECT_defaced.mgz`.
                  face.gca                                           \
                  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
 
-Here, `001.mgz` is the original scan and the `SUBJECT_defaced.mgz` is the dafaced file. 
 
 If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), you can fetch and unzip them:
 
