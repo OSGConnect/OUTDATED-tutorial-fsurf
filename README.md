@@ -46,7 +46,7 @@ using `--password`.  For example,
 
       fsurf --submit --subject test --user myuser --password mypassword
 
-the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
+the argument `myuser` is your username and `mypassword` is your password for your fsurf account on OSG Connect.
 
 ###  Check the fsurf setup and options
 
