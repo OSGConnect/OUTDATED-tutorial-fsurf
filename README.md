@@ -48,9 +48,9 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your OSG Connect account. 
 
-##  Check the setup of fsurf 
+###  Check the fsurf setup and options
 
-To check the setup of `fsurf`, invoke the help argument. 
+To check the initial set up of `fsurf` on OSG Connect or your laptop (desktop), invoke the help argument. 
 
       $ fsurf --help
 
