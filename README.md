@@ -13,7 +13,7 @@
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
 Important note on Data privacy: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section `How to deface images` at the end of this tutorial.  
+section `How to anonymize images` at the end of this tutorial.  
 
 
 ##  Initial Setup 
@@ -154,19 +154,19 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
 
 This will not effect the files you have fetched with fsurf --output --id WorkflowID.
 
-##  How to deface images 
+##  How to anonymize images 
 
 Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `FreeSurfer`
-installation to prepare your scans.  For example, use this command sequence to convert a DICOM formatted image `001.mgz` 
-to `SUBJECT_defaced.mgz`. 
+installation to prepare your scans. The original DICON scan produce several slices. First, combine the slices and create single image file by
 
-      $ cd $FREESURFER_HOME/average
       $ recon-all -subject SUBJECT -i PATH_TO_ONE_OF_THE_SLICES
-      $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz               \
-                 talairach_mixed_with_skull.gca                     \
-                 face.gca                                           \
-                 ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
 
+Here, `recon-all` is the `FreeSurfer` command line tool, the argument `SUBJECT` is the name of the subject, and the argument `PATH_TO_ONE_OF_THE_SLICES` is the name of just one DICON file with path information. The result of the above command would produce a single compressed image file `001.mgz`
+under the directory `subjects/SUBJECT/mri/orig`. Now deface the image,
+
+      $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz  talairach_mixed_with_skull.gca  face.gca  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
+
+The image file `001.mgz` is defaced to `SUBJECT_defaced.mgz`.
 
 If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), fetch and unzip them:
 
