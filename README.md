@@ -1,9 +1,9 @@
-[title]: - "Image Analysis of Human Brain - Freesurfer Workflow on OSG"
+[title]: - "Image Analysis of Human Brain - FreeSurfer Workflow on OSG"
 [TOC]
  
 ## Overview
 
-[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies `freesurfer` computation on the Open Science Grid (OSG). The advantages of using  `fsurf` are:
+[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies `FreeSurfer` computation on the Open Science Grid (OSG). The advantages of using  `fsurf` are:
 
      (1) Handles job submission to OSG using appropriate flags for multi-core job slots
      (2) Handles data transfer to and from remote worker nodes
@@ -19,7 +19,7 @@ section `How to deface images` at the end of this tutorial.
 ##  Initial Setup 
 
 You could set up and use the `fsurf` workflow on your laptop (desktop) or on the OSG Connect login node. Weather you run `fsurf` from 
-laptop or from OSG Connect submit node, your actual freesurfer jobs are executed on remote OSG machines.
+laptop or from OSG Connect submit node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
 ###  Setup on OSG Connect submit node
 
@@ -94,7 +94,7 @@ Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the 
 
      $ fsurf  --submit --subject test --dir $PWD
 
-Free surfer requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
+The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
 
      Has the MRI data been deidentified (This is required) [y/n]? y
      Has the MRI data been defaced (This is recommended) [y/n]? y
@@ -156,7 +156,7 @@ This will not effect the files you have fetched with fsurf --output --id Workflo
 
 ##  How to deface images 
 
-Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `freesurfer`
+Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `FreeSurfer`
 installation to prepare your scans.  For example, use this command sequence to convert a DICOM formatted image `001.mgz` 
 to `SUBJECT_defaced.mgz`. 
 
