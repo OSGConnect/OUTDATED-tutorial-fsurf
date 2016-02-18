@@ -35,7 +35,7 @@ and run on the command line:
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in.
 
 
-###  Local machine 
+###  Local Machine 
 
 Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
 
@@ -49,7 +49,7 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your fsurf account on OSG Connect.
 
-###  Fsurf Arguments
+###  Check Setup
 
 To check `fsurf` setup and the available options, type 
 
