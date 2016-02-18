@@ -18,8 +18,8 @@ section `Anonymize Images` at the end of this tutorial.
 
 ##  Initial Setup 
 
-You could set up and use the `fsurf` workflow on your laptop (desktop) or on the OSG Connect login node. Weather you run `fsurf` from 
-laptop or from OSG Connect login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
+You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Weather 
+you run `fsurf` from a local machine or the login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
 ###  Login Node
 
@@ -167,8 +167,6 @@ Here, `recon-all` is the `FreeSurfer` command line tool, the argument `SUBJECT` 
 under the directory `subjects/SUBJECT/mri/orig`. Now deface the image `001.mgz` to to `SUBJECT_defaced.mgz` with the `mri_deface` command as follows,
 
       $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz  talairach_mixed_with_skull.gca  face.gca  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
-
-
 
 If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), fetch and unzip them:
 
