@@ -9,28 +9,32 @@
      (2) Handles data transfer to and from remote worker nodes
      (3) Provides a complete pipeline to analyze an MRI image 
 
-You may set up the `fsurf` workflow on your `laptop (desktop)` or on the `login.osgconnect.net`. Both setups allow you to submit the job 
-on OSG machines. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
-Data privacy note: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
+Important note on Data privacy: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
 section `How to deface images` at the end of this tutorial.  
 
 
-##  Setup on login.osgconnect.net
+##  Initial Setup 
+
+You could set up and use the `fsurf` workflow on your laptop (desktop) or on the OSG Connect login node. Weather you run `fsurf` from 
+laptop or from OSG Connect submit node, your actual freesurfer jobs are executed on remote OSG machines.
+
+###  Setup on OSG Connect submit node
 
 First, ssh to the OSG Connect's login node
 
      $ ssh username@login.osgconnect.net
-     
+
 You need to set up the `fsurf` tool. Run on the command line:
 
      $ fsurf-config
 
-This command may be placed at the end of your .bashrc file so that it will automatically run when you log in. 
+This command may be placed at the end of your .bashrc file so that it will automatically run when you log in.
 
-##  Setup on laptop or desktop
+
+###  Setup on laptop or desktop
 
 Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
 
