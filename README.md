@@ -13,7 +13,7 @@
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
 Important note on Data privacy: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section `How to anonymize images` at the end of this tutorial.  
+section `Anonymize Images` at the end of this tutorial.  
 
 
 ##  Initial Setup 
@@ -21,7 +21,7 @@ section `How to anonymize images` at the end of this tutorial.
 You could set up and use the `fsurf` workflow on your laptop (desktop) or on the OSG Connect login node. Weather you run `fsurf` from 
 laptop or from OSG Connect submit node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
-###  Setup on OSG Connect submit node
+###  Setup on OSG Connect Submit Node
 
 First, ssh to the OSG Connect's login node
 
@@ -34,7 +34,7 @@ You need to set up the `fsurf` tool. Run on the command line:
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in.
 
 
-###  Setup on laptop or desktop
+###  Setup on Laptop or Desktop
 
 Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
 
@@ -48,9 +48,9 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your fsurf account on OSG Connect.
 
-###  Check the fsurf setup and options
+###  Check Options 
 
-To check the initial set up of `fsurf` on OSG Connect or your laptop (desktop), invoke the help argument. 
+To check the initial set up of `fsurf` is working fine, invoke the help argument. 
 
       $ fsurf --help
 
@@ -117,7 +117,7 @@ Run the command below to get a list of ids for your workflows that are running o
      test       20160119T100055-0600 10:00 01-19-2016     2               Running   
 
 
-###  Get output from a completed workflow
+###  Get Outputs
 
 See the workflow is completed. In the event of completion, the staus of the workflow should be `Success` as follows
 
@@ -139,7 +139,7 @@ Depending on the computer resources available this will typically require severa
      $ fsurf --output -id WorkflowID
      $ tar -jxvf WorkflowID.tar.bz2
 
-###  Remove a running or completed workflow
+###  Remove Workflows
 
 Run on the command line to remove an existing workflow:
    
@@ -154,7 +154,7 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
 
 This will not effect the files you have fetched with fsurf --output --id WorkflowID.
 
-##  How to anonymize images 
+##  Anonymize Images 
 
 Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `FreeSurfer`
 installation to prepare your scans. The original DICON scan produce several slices. First, combine the slices and create single image file by
