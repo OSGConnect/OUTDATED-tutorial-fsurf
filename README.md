@@ -19,22 +19,23 @@ section `Anonymize Images` at the end of this tutorial.
 ##  Initial Setup 
 
 You could set up and use the `fsurf` workflow on your laptop (desktop) or on the OSG Connect login node. Weather you run `fsurf` from 
-laptop or from OSG Connect submit node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
+laptop or from OSG Connect login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
-###  Setup on OSG Connect Submit Node
+###  Login Node
 
-First, ssh to the OSG Connect's login node
+The tool `fsurf` is already installed on the OSG Connect login node. You just need to set the correct environmental variables to utlize `fsurf` on 
+login node. First, ssh to the OSG Connect's login node
 
      $ ssh username@login.osgconnect.net
 
-You need to set up the `fsurf` tool. Run on the command line:
+and run on the command line:
 
      $ fsurf-config
 
 This command may be placed at the end of your .bashrc file so that it will automatically run when you log in.
 
 
-###  Setup on Laptop or Desktop
+###  Local machine 
 
 Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
 
@@ -48,13 +49,13 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your fsurf account on OSG Connect.
 
-###  Check Options 
+###  Fsurf Arguments
 
-To check the initial set up of `fsurf` is working fine, invoke the help argument. 
+To check `fsurf` setup and the available options, type 
 
       $ fsurf --help
 
-If you see the following message, the setup of `fsurf` is fine. 
+would print the following message. 
 
       usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
                    [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
@@ -78,6 +79,7 @@ If you see the following message, the setup of `fsurf` is fine.
         --dualcore            Use 2 cores to process certain steps
         --verbose             Enable verbose output for status action
 
+If you see the above message on the terminal, the setup of `fsurf` is fine and you are ready to analyze the image file. 
 
 ##  Process a Scan
 
