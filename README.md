@@ -6,14 +6,14 @@
 [FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies `FreeSurfer` computation on the Open Science Grid (OSG). The advantages of using  `fsurf` are:
 
      (1) Handles job submission to OSG using appropriate flags for multi-core job slots
-     (2) Handles data transfer to and from remote worker nodes
+     (2) Transfers the data to and from remote worker nodes
      (3) Provides a complete pipeline to analyze an MRI image 
 
+In this tutorial, you learn how to set up fsurf on local machine or login machine, run an image analysis on remote worker machine and get the output files. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
-Important note on Data privacy: The fsurf tool is not HIPPA compliant. Images must be anonymized and deidentified before submission.  See the 
-section `Anonymize Images` at the end of this tutorial.  
+Important note on Data privacy: The fsurf tool is not HIPPA compliant. Health Insurance Portability and Accountability Act (HIPPA) is federal law to protect medical information. So the images must be anonymized and deidentified before the job submissions on OSG.  See the section `Anonymize Images` at the end of this tutorial.  
 
 
 ##  Initial Setup 
