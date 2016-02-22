@@ -9,7 +9,7 @@
      (2) Transfers the data to and from remote worker nodes
      (3) Provides a complete pipeline to analyze an MRI image 
 
-In this tutorial, you learn how to set up fsurf on local machine or login machine, run an image analysis on remote worker machine and get the output files. 
+In this tutorial, you learn how to set up fsurf on local or login machine, run image analysis on OSG, and get the output files. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
