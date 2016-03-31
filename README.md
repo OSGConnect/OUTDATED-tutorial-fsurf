@@ -18,7 +18,7 @@ Important note on Data privacy: The `fsurf` tool is not HIPPA compliant (Health 
 
 ##  Initial Setup 
 
-You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Weather 
+You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Whether 
 you run `fsurf` from a local machine or the login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
 ###  Login Node
