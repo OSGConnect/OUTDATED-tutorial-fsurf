@@ -13,31 +13,46 @@ In this tutorial, first you learn how to do the initial set up of `fsurf` on loc
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
-Important note on Data privacy: The `fsurf` tool is not HIPPA compliant (Health Insurance Portability and Accountability Act (HIPPA) is federal law to protect medical information). So the images must be anonymized and deidentified before the jobs are submitted on  OSG machines.  See the section `Anonymize Images` at the end of this tutorial.  
+Important note on Data privacy: The `fsurf` tool is not HIPPA compliant (Health Insurance Portability and Accountability Act (HIPPA) is federal law to protect medical information). So the images must be anonymized and deidentified before the MRI images are placed on or submitted on  OSG machines.  See the section `Anonymize Images` below.  
+
+##  Anonymize Images 
+
+Since OSG resources are not HIPPA compliant, the MRI images must be deidentified and defaced on your local machine before being used.  You can use a local `FreeSurfer` installation to prepare your scans. First, import your image by running
+
+      $ recon-all -subject SUBJECT -i PATH_TO_MGZ_INPUT_FILE
+
+Here, `recon-all` is the `FreeSurfer` command line tool, the argument `SUBJECT` is the name of the subject, and the argument `PATH_TO_MGZ_INPUT_FILE` is the  full path to the input file. The above command produces a single compressed image file `001.mgz`
+under the directory `subjects/SUBJECT/mri/orig`. Now deface the image `001.mgz` to to `SUBJECT_defaced.mgz` with the `mri_deface` command as follows,
+
+      $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz  talairach_mixed_with_skull.gca  face.gca  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
+
+If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), fetch and unzip them:
+
+     $ wget "http://stash.osgconnect.net/@freesurfer/face.gca"
+     $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
 
 
 ##  Initial Setup 
 
-You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Whether 
-you run `fsurf` from a local machine or the login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
+You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Whether  you run `fsurf` from a local machine or the login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
 
 ###  Login Node
 
-The tool `fsurf` is already installed on the OSG Connect login node. You just need to set the correct environmental variables to utlize `fsurf` on 
+The tool `fsurf` is already installed on the OSG Connect login node. You just need to configure it in order to utilize `fsurf` on 
 login node. First, ssh to the OSG Connect's login node
 
      $ ssh username@login.osgconnect.net
 
-and run on the command line:
+and run
 
      $ fsurf-config
 
-This command may be placed at the end of your .bashrc file so that it will automatically run when you log in.
+You should only need to run this command once in order to setup the fsurf configuration for you.
 
 
 ###  Local Machine 
 
-Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` command which is a utility to copy the content of the url. Open a terminal window and then run:
+Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` which downloads files hosted on web servers. Open a terminal window and then run:
 
       curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
       chmod +x fsurf 
@@ -47,15 +62,15 @@ using `--password`.  For example,
 
       fsurf --submit --subject test --user myuser --password mypassword
 
-the argument `myuser` is your username and `mypassword` is your password for your fsurf account on OSG Connect.
+the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
 
 ###  Check Setup
 
-To check `fsurf` setup and the available options, type 
+To check `fsurf` setup and the available options, running 
 
       $ fsurf --help
 
-would print the following message. 
+will print the following message. 
 
       usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
                    [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
@@ -79,19 +94,19 @@ would print the following message.
         --dualcore            Use 2 cores to process certain steps
         --verbose             Enable verbose output for status action
 
-If you see the above message on the terminal, the setup of `fsurf` is fine and you are ready to analyze the image file. 
+If you see the above message on the terminal, the setup of `fsurf` is fine and you are ready to analyze MRI images. 
 
 ##  Process a Scan
 
 A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
 
-Get the sample MRI file by 
+Get a sample MRI file by running
 
      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
 
 the file `test_defaced.mgz` is the defaced sample file. 
 
-Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject which could be a number or name while the format  is `mgz` file format.
+Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject.
 
 
      $ fsurf  --submit --subject test --dir $PWD
@@ -106,12 +121,12 @@ After typing `y` to the above two questions, `fsurf` creates and submits the wor
      Creating and submitting workflow
      Workflow submitted with an id of 20160119T100055-0600
 
-The id of your workflow is `20160119T100055-0600`. The id is useful for checking, removing and getting the output of the workflow. 
+The id of your workflow is `20160119T100055-0600`. The id is needed to check the status, remove and get the output of the workflow. 
 
 
 ###  List Workflows
 
-Run the command below to get a list of ids for your workflows that are running or have already  completed:
+Run the command below to get a list of workflows that you have submitted and their status:
 
      $ fsurf --list 
      Current workflows
@@ -121,18 +136,18 @@ Run the command below to get a list of ids for your workflows that are running o
 
 ###  Get Outputs
 
-See the workflow is completed. In the event of completion, the staus of the workflow should be `Success` as follows
+Once a workflow is completed successfully, the status of the workflow should be `COMPLETED` as can be seen below
 
      $ fsurf --list 
      Current workflows
      Subject    Workflow             Submit time          Cores Used      Status    
-     test       20160119T100055-0600 10:00 01-19-2016     2               Success   
+     test       20160119T100055-0600 10:00 01-19-2016     2               COMPLETED   
 
 Run the command below to get the output of the completed workflow `20160119T100055-0600`:
  
      $ fsurf --output --id 20160119T100055-0600
 
-Depending on the computer resources available this will typically require several hours to complete.  The output will be saved as an archive in the current working directory: 20160119T100055-0600.tar.bz2 . You can extract all the files in the archive using: 
+Depending on the computer resources available, a workflow will typically require 6-12 hours to complete.  The output will be saved as an archive in the current working directory: 20160119T100055-0600.tar.bz2 . You can extract all the files in the archive using: 
 
     $ tar -jxvf 20160119T100055-0600.tar.bz2
  
@@ -143,7 +158,7 @@ Depending on the computer resources available this will typically require severa
 
 ###  Remove Workflows
 
-Run on the command line to remove an existing workflow:
+Run the following to remove an existing workflow:
    
     $ fsurf --remove --id WorkflowID
 
@@ -154,24 +169,8 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
     Waiting for running jobs to be removed...
     Jobs removed, removing workflow directory
 
-This will not effect the files you have fetched with fsurf --output --id WorkflowID.
+This will not effect the files you have fetched previously.
 
-##  Anonymize Images 
-
-Since `fsurf` is not HIPPA compliant, the scan file should be deidentified and defaced on your local machine.  You can use your local `FreeSurfer`
-installation to prepare your scans. The original DICON scan produce several slices. First, combine the slices and create single image file by
-
-      $ recon-all -subject SUBJECT -i PATH_TO_ONE_OF_THE_SLICES
-
-Here, `recon-all` is the `FreeSurfer` command line tool, the argument `SUBJECT` is the name of the subject, and the argument `PATH_TO_ONE_OF_THE_SLICES` is the name of just one DICON file with full path information. The above command produces a single compressed image file `001.mgz`
-under the directory `subjects/SUBJECT/mri/orig`. Now deface the image `001.mgz` to to `SUBJECT_defaced.mgz` with the `mri_deface` command as follows,
-
-      $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz  talairach_mixed_with_skull.gca  face.gca  ../subjects/SUBJECT/mri/orig/SUBJECT_defaced.mgz
-
-If the `mri_deface` program cannot find the needed `*.gca` files (the standard FreeSurfer parameter files), fetch and unzip them:
-
-     $ wget "http://stash.osgconnect.net/@freesurfer/face.gca"
-     $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
 
 ## Getting Help 
 For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
