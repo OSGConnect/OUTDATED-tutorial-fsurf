@@ -17,12 +17,12 @@ In this tutorial, we first describe the initial set up of `fsurf` on local machi
 
 ##  Anonymize Images 
 
-Since OSG resources are not HIPPA compliant, the MRI images must be deidentified and defaced on your local machine before being used.  You can use a local `FreeSurfer` installation to prepare your scans. First, import your image by running
+Since OSG resources are not HIPPA compliant, the MRI images must be deidentified and defaced on your local machine before being used.  You can use a local `FreeSurfer` installation to prepare your scans. First, on your local machine import your image by running
 
       $ recon-all -subject SUBJECT -i PATH_TO_MGZ_INPUT_FILE
 
 Here, `recon-all` is the `FreeSurfer` command line tool, the argument `SUBJECT` is the name of the subject, and the argument `PATH_TO_MGZ_INPUT_FILE` is the  full path to the input file. The above command produces a single compressed image file `001.mgz`
-under the directory `subjects/SUBJECT/mri/orig`. Now deface the image `001.mgz` to to `SUBJECT_defaced.mgz` with the `mri_deface` command as follows,
+under the directory `subjects/SUBJECT/mri/orig`. Now deface the image `001.mgz` to `SUBJECT_defaced.mgz` with the `mri_deface` command as follows,
 
       $ cd  ${FREESURFER_HOME}/average
       $ mri_deface ../subjects/SUBJECT/mri/orig/001.mgz  \
