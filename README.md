@@ -13,7 +13,7 @@ In this tutorial, we first describe the initial set up of `fsurf` on local machi
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
-Important note on Data privacy: The `fsurf` tool is not HIPPA compliant (Health Insurance Portability and Accountability Act (HIPPA) is federal law to protect medical information). So the images must be anonymized and deidentified before the MRI images are placed on or submitted on  OSG machines.  See the section `Anonymize Images` below.  
+**Important note on data privacy**: The `fsurf` tool is not HIPPA compliant (Health Insurance Portability and Accountability Act (HIPPA) is federal law to protect medical information). Therefore images must be anonymized and deidentified before they are uploaded to OSG servers.  See the section `Anonymize Images` below for more details.  
 
 ##  Anonymize Images 
 
