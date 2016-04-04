@@ -3,13 +3,13 @@
  
 ## Overview
 
-[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies `FreeSurfer` computation on the Open Science Grid (OSG). The advantages of using  `fsurf` are:
+[FreeSurfer](http://freesurfer.net/) is a software package to analyze MRI images of human brain subjects. The OSG has developed a command line utility, `fsurf`, that simplifies `FreeSurfer` computation on the Open Science Grid (OSG).  Among its features:
 
-     (1) Handles job submission to OSG using appropriate flags for multi-core job slots
-     (2) Transfers the data to and from remote worker nodes
-     (3) Provides a complete pipeline to analyze an MRI image 
+* Handles job submission to OSG using appropriate flags for multi-core job slots
+* Transfers image data to and from remote worker nodes
+* Provides a complete pipeline to analyze an MRI image 
 
-In this tutorial, first you learn how to do the initial set up of `fsurf` on local machine or login node. Next, you learn the usage of  `fsurf` to run image analysis on OSG and get the output files. 
+In this tutorial, we first describe the initial set up of `fsurf` on local machine or login node. Next, we will learn the usage of  `fsurf` to run image analysis on OSG and get the output files. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
