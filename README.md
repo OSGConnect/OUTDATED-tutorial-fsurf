@@ -43,7 +43,7 @@ You could set up and use the `fsurf` workflow on a local machine (your laptop/de
 ###  Login Node
 
 The tool `fsurf` is already installed on the OSG Connect login node. You just need to configure it in order to utilize `fsurf` on 
-login node. First, ssh to the OSG Connect's login node
+login node. First, ssh to the OSG Connect's login node:
 
      $ ssh username@login.osgconnect.net
 
@@ -70,7 +70,7 @@ the argument `myuser` is your username and `mypassword` is your password for you
 
 ###  Check Setup
 
-To check `fsurf` setup and the available options, running 
+To check `fsurf` setup and the available options, run:
 
       $ fsurf --help
 
