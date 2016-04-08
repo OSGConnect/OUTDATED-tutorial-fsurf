@@ -106,7 +106,7 @@ A typical image analysis requires doing calculations on multiple-stages via auto
 
 Get a sample MRI file by running
 
-     curl -L -o test_defaced.mgz 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
+     curl -L -o MRN_3_defaced.mgz 'http://stash.osgconnect.net/+fsurf/MRN_3_defaced.mgz'
 
 the file `test_defaced.mgz` is the defaced sample file. 
 
