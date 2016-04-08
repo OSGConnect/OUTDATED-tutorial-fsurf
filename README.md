@@ -17,7 +17,7 @@ In this tutorial, we first describe the initial set up of `fsurf` on local machi
 
 ##  Anonymize Images 
 
-Since OSG resources are not HIPPA compliant, the MRI images must be deidentified and defaced on your local machine before being used.  You can use a local `FreeSurfer` installation to prepare your scans. First, on your local machine import your image by running
+Since OSG resources are not HIPPA compliant, the MRI images must be deidentified and defaced on your local machine before being used.  You can use a local `FreeSurfer` installation to prepare your scans. First, on your local machine import into FreeSurfer your image by running
 
       $ recon-all -subject SUBJECT -i PATH_TO_MGZ_INPUT_FILE
 
@@ -106,14 +106,14 @@ A typical image analysis requires doing calculations on multiple-stages via auto
 
 Get a sample MRI file by running
 
-     curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
+     curl -L -o test_defaced.mgz 'http://stash.osgconnect.net/+fsurf/test_defaced.mgz'
 
 the file `test_defaced.mgz` is the defaced sample file. 
 
 Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject.
 
 
-     $ fsurf  --submit --subject test --dir $PWD
+     $ fsurf  --submit --subject test 
 
 The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
 
@@ -151,14 +151,14 @@ Run the command below to get the output of the completed workflow `20160119T1000
  
      $ fsurf --output --id 20160119T100055-0600
 
-Depending on the computer resources available, a workflow will typically require 6-12 hours to complete.  The output will be saved as an archive in the current working directory: 20160119T100055-0600.tar.bz2 . You can extract all the files in the archive using: 
+Depending on the computer resources available, a workflow will typically require 6-12 hours to complete.  The output will be saved as an archive in the current working directory: `test_output.tar.bz2` where test will be replaced by the subject name . You can extract all the files in the archive using: 
 
-    $ tar -jxvf 20160119T100055-0600.tar.bz2
+    $ tar -jxvf test_output.tar.bz2
  
  Similarly, you get the output of any completed  workflow with id `WorkflowID` 
  
      $ fsurf --output -id WorkflowID
-     $ tar -jxvf WorkflowID.tar.bz2
+     $ tar -jxvf <SubjectName>_output.tar.bz2
 
 ###  Remove Workflows
 
