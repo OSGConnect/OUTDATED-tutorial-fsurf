@@ -64,7 +64,7 @@ Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a rem
 While using the local laptop or desktop version of fsurf, you  specify `username` using the `--user` argument and the `password` 
 using `--password`.  For example,  
 
-      fsurf --submit --subject test --user myuser --password mypassword
+      fsurf --submit --subject MRN_3 --user myuser --password mypassword
 
 the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
 
@@ -113,7 +113,7 @@ the file `test_defaced.mgz` is the defaced sample file.
 Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject.
 
 
-     $ fsurf  --submit --subject test 
+     $ fsurf  --submit --subject MRN_3 
 
 The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
 
