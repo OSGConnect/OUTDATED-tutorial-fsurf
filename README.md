@@ -157,7 +157,7 @@ Depending on the computer resources available, a workflow will typically require
  
  Similarly, you get the output of any completed  workflow with id `WorkflowID` 
  
-     $ fsurf --output -id WorkflowID
+     $ fsurf --output --id WorkflowID
      $ tar -jxvf <SubjectName>_output.tar.bz2
 
 ###  Remove Workflows
