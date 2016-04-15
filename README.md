@@ -36,12 +36,8 @@ If the `mri_deface` program cannot find the needed `*.gca` files (the standard F
      $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
 
 
-##  Initial Setup 
-
-You could set up and use the `fsurf` workflow on a local machine (your laptop/desktop/lab machine) or on the OSG Connect login node. Whether  you run `fsurf` from a local machine or the login node, your actual `FreeSurfer` jobs are executed on remote OSG machines.
-
-###  Login Node
-
+## Running workflows using OSG Connect Login Node
+## Initial Setup
 The tool `fsurf` is already installed on the OSG Connect login node. You just need to configure it in order to utilize `fsurf` on 
 login node. First, ssh to the OSG Connect's login node:
 
@@ -51,71 +47,22 @@ and run
 
      $ fsurf-config
 
-You should only need to run this command once in order to setup the fsurf configuration for you.
-
-
-###  Local Machine 
-
-Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) as a remote client with the `curl` which downloads files hosted on web servers. Open a terminal window and then run:
-
-      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
-      chmod +x fsurf 
-
-While using the local laptop or desktop version of fsurf, you  specify `username` using the `--user` argument and the `password` 
-using `--password`.  For example,  
-
-      fsurf --submit --subject MRN_3 --user myuser --password mypassword
-
-the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
-
-###  Check Setup
-
-To check `fsurf` setup and the available options, run:
-
-      $ fsurf --help
-
-will print the following message. 
-
-      usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
-                   [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
-                   [--dir INPUT_DIRECTORY] [--dualcore] [--verbose]
-
-      Process freesurfer information
-
-      optional arguments:
-        -h, --help            show this help message and exit
-        --version             show program's version number and exit
-        --submit              Submit job for processing
-        --list                List current jobs
-        --status              Get status of a specified job
-        --remove              Remove specified job
-        --output              Get output from specified job
-        --log                 Get log file for specified job
-        --id WORKFLOW_ID      id that specifies job
-        --subject SUBJECT     Subject id to process
-        --dir INPUT_DIRECTORY
-                        directory containing input file
-        --dualcore            Use 2 cores to process certain steps
-        --verbose             Enable verbose output for status action
-
-If you see the above message on the terminal, the setup of `fsurf` is fine and you are ready to analyze MRI images. 
+You should only need to run this command once in order to configure fsurf.
 
 ##  Process a Scan
 
-A typical image analysis requires doing calculations on multiple-stages via autorecon1, autorecon2, and autorecon3.  All three steps are conveniently handled by `fsurf`. 
+A typical Freesurfer analysis runs autorecon1, autorecon2, and autorecon3 sequentially on MRI data.  All three steps are conveniently handled by `fsurf`. 
 
 Get a sample MRI file by running
 
      curl -L -o MRN_3_defaced.mgz 'http://stash.osgconnect.net/+fsurf/MRN_3_defaced.mgz'
 
-the file `test_defaced.mgz` is the defaced sample file. 
-
-Now we do an analysis on `test_defaced.mgz`. In the file `test_defaced.mgz` the prefix `test` is the name of the subject.
+Now we do an analysis on `MRN_3_defaced.mgz`. In the file `MRN_3_defaced.mgz` the prefix `MRN_3` is the name of the subject.
 
 
      $ fsurf  --submit --subject MRN_3 
 
-The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The supplied `test_defaced.mgz` is already deidentified and defaced, so say `y` to the following questions. 
+The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The  `MRN_3__defaced.mgz` image is already deidentified and defaced, so say `y` to the following questions. 
 
      Has the MRI data been deidentified (This is required) [y/n]? y
      Has the MRI data been defaced (This is recommended) [y/n]? y
@@ -174,6 +121,130 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
     Jobs removed, removing workflow directory
 
 This will not effect the files you have fetched previously.
+
+
+## Running workflows using your system
+###  Setup
+
+Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) by first downloading the script using the `curl` command. Open a terminal window and then run:
+
+      curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
+      chmod +x fsurf 
+
+While using the local laptop or desktop version of fsurf, you  specify `username` using the `--user` argument and the `password` 
+using `--password`.  For example,  
+
+      fsurf --submit --subject MRN_3 --user myuser --password mypassword
+
+the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
+
+###  Getting help
+
+To see the available options, run:
+
+      $ ./fsurf --help
+
+will print the following message. 
+
+      usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
+                   [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
+                   [--dir INPUT_DIRECTORY] [--dualcore] [--user USER]
+                   [--password PASSWORD]
+
+      Process freesurfer information
+
+      optional arguments:
+        -h, --help            show this help message and exit
+        --version             show program's version number and exit
+        --submit              Submit job for processing
+        --list                List current jobs
+        --status              Get status of a specified job
+        --remove              Remove specified job
+        --output              Get output from specified job
+        --log                 Get log file for specified job
+        --id WORKFLOW_ID      id that specifies job
+        --subject SUBJECT     Subject id to process
+        --dir INPUT_DIRECTORY
+                        directory containing input file
+        --dualcore            Use 2 cores to process certain steps
+        --user USER           Username to use to login
+        --password PASSWORD   Password used to login
+
+
+##  Process a Scan
+
+A typical Freesurfer analysis runs autorecon1, autorecon2, and autorecon3 sequentially on MRI data.  All three steps are conveniently handled by `fsurf`. 
+
+Get a sample MRI file by running
+
+     curl -L -o MRN_3_defaced.mgz 'http://stash.osgconnect.net/+fsurf/MRN_3_defaced.mgz'
+
+the file `MRN_3_defaced.mgz` is the defaced sample file. 
+
+Now we do an analysis on `MRN_3_defaced.mgz`. In the file `MRN_3_defaced.mgz` the prefix `MRN_3` is the name of the subject.
+
+
+     $ ./fsurf  --submit --subject MRN_3 --user myuser --password mypassword
+
+The `FreeSurfer` requires that the MRI file to be deidentified and defaced. The `MRN_3_defaced.mgz` image is already deidentified and defaced, so say `y` to the following questions. 
+
+     Has the MRI data been deidentified (This is required) [y/n]? y
+     Has the MRI data been defaced (This is recommended) [y/n]? y
+
+After typing `y` to the above two questions, `fsurf` creates and submits the workflow 
+
+     Creating and submitting workflow
+     Workflow submitted with an id of 20160119T100055-0600
+
+The id of your workflow is `20160119T100055-0600`. The id is needed to check the status, remove and get the output of the workflow. 
+
+
+###  List Workflows
+
+Run the command below to get a list of workflows that you have submitted and their status:
+
+     $ ./fsurf --list --user myuser --password mypassword
+     Current workflows
+     Subject    Workflow             Submit time          Cores          Status
+     test       97                   10:00 01-19-2016     2               Running   
+
+
+###  Getting Outputs
+
+Once a workflow is completed successfully, the status of the workflow should be `COMPLETED` as below
+
+     $ fsurf --list --user myuser --password mypassword
+     Current workflows
+     Subject    Workflow             Submit time          Cores           Status    
+     test       97                   10:00 01-19-2016     2               COMPLETED   
+
+Run the command below to get the output of the completed workflow `20160119T100055-0600`:
+ 
+     $ ./fsurf --output --id 97 --user myuser --password mypassword
+
+Depending on the computer resources available, a workflow will typically require 6-12 hours to complete.  The output will be saved as an archive in the current working directory: `test_output.tar.bz2` where test will be replaced by the subject name . You can extract all the files in the archive using: 
+
+    $ tar -jxvf test_output.tar.bz2
+ 
+ Similarly, you get the output of any completed  workflow with id `WorkflowID` 
+ 
+     $ fsurf --output --id WorkflowID
+     $ tar -jxvf <SubjectName>_output.tar.bz2
+
+###  Remove Workflows
+
+Run the following to remove an existing workflow:
+   
+    $ fsurf --remove --id WorkflowID
+
+For example, to remove a running worflow with an id `56`, type
+
+    $ fsurf --remove --id 56
+    Workflow removed
+
+This will not effect the files you have downloaded already.
+
+
 
 
 ## Getting Help 
