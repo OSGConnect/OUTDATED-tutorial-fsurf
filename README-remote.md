@@ -1,4 +1,4 @@
-[title]: - "Image Analysis of Human Brain - Running FreeSurfer Workflows from Your Laptop"
+[title]: - "Image Analysis of Human Brain - Running FreeSurfer Workflows from Your System"
 [TOC]
  
 ## Overview
