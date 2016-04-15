@@ -138,39 +138,6 @@ using `--password`.  For example,
 
 the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
 
-###  Getting help
-
-To see the available options, run:
-
-      $ ./fsurf --help
-
-will print the following message. 
-
-      usage: fsurf [-h] [--version] [--submit] [--list] [--status] [--remove]
-                   [--output] [--log] [--id WORKFLOW_ID] [--subject SUBJECT]
-                   [--dir INPUT_DIRECTORY] [--dualcore] [--user USER]
-                   [--password PASSWORD]
-
-      Process freesurfer information
-
-      optional arguments:
-        -h, --help            show this help message and exit
-        --version             show program's version number and exit
-        --submit              Submit job for processing
-        --list                List current jobs
-        --status              Get status of a specified job
-        --remove              Remove specified job
-        --output              Get output from specified job
-        --log                 Get log file for specified job
-        --id WORKFLOW_ID      id that specifies job
-        --subject SUBJECT     Subject id to process
-        --dir INPUT_DIRECTORY
-                        directory containing input file
-        --dualcore            Use 2 cores to process certain steps
-        --user USER           Username to use to login
-        --password PASSWORD   Password used to login
-
-
 ##  Process a Scan
 
 A typical Freesurfer analysis runs autorecon1, autorecon2, and autorecon3 sequentially on MRI data.  All three steps are conveniently handled by `fsurf`. 
