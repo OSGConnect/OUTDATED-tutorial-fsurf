@@ -36,7 +36,6 @@ If the `mri_deface` program cannot find the needed `*.gca` files (the standard F
      $ wget "http://stash.osgconnect.net/@freesurfer/talairach_mixed_with_skull.gca"
 
 
-## Running workflows using OSG Connect Login Node
 ## Initial Setup
 The tool `fsurf` is already installed on the OSG Connect login node. You just need to configure it in order to utilize `fsurf` on 
 login node. First, ssh to the OSG Connect's login node:
