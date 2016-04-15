@@ -39,7 +39,7 @@ If the `mri_deface` program cannot find the needed `*.gca` files (the standard F
 
 ##  Setup
 
-Install python.2.7 on your laptop (or desktop) to run fsurf. Set up `fsurf` on your laptop (linux/unix/MacOS X OS system) by downloading the script using the `curl` command. Open a terminal window and then run:
+Set up `fsurf` on your laptop (linux/unix/MacOS X OS system) by downloading the script using the `curl` command. You need to install python.2.7 on your laptop (or desktop) to run fsurf. Open a terminal window and then run:
 
       curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
       chmod +x fsurf 
