@@ -1,4 +1,4 @@
-[title]: - "Image Analysis of Human Brain - FreeSurfer Workflow on OSG"
+[title]: - "Image Analysis of Human Brain - Running FreeSurfer Workflows From Your System"
 [TOC]
  
 ## Overview
