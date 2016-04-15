@@ -1,4 +1,4 @@
-[title]: - "Image Analysis of Human Brain - FreeSurfer Workflow on OSG"
+[title]: - "Image Analysis of Human Brain - FreeSurfer Workflow From the OSG Connect Login Host"
 [TOC]
  
 ## Overview
