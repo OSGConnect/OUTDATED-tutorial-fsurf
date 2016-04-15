@@ -1,4 +1,4 @@
-[title]: - "Image Analysis of Human Brain - Running FreeSurfer Workflows From Your System"
+[title]: - "Image Analysis of Human Brain - Running FreeSurfer Workflows from Your Laptop"
 [TOC]
  
 ## Overview
@@ -9,7 +9,8 @@
 * Transfers image data to and from remote worker nodes
 * Provides a complete pipeline to analyze an MRI image 
 
-In this tutorial, we first describe the initial set up of `fsurf` on local machine or login node. Next, we will learn the usage of  `fsurf` to run image analysis on OSG and get the output files. 
+
+In this tutorial, we first describe the initial set up of `fsurf` on your laptop (or desktop). Next, we will learn the usage of  `fsurf` to run image analysis from your laptop. 
 
 ![fig 1](https://raw.githubusercontent.com/OSGConnect/tutorial-FreeSurfer/master/Figs/freesurfer_image_from_net.png )
 
@@ -38,7 +39,7 @@ If the `mri_deface` program cannot find the needed `*.gca` files (the standard F
 
 ##  Setup
 
-Set up `fsurf` on your laptop or desktop (linux/unix/MacOS X OS system) by first downloading the script using the `curl` command. Open a terminal window and then run:
+Install python.2.7 on your laptop (or desktop) to run fsurf. Set up `fsurf` on your laptop (linux/unix/MacOS X OS system) by downloading the script using the `curl` command. Open a terminal window and then run:
 
       curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
       chmod +x fsurf 
@@ -114,7 +115,7 @@ Depending on the computer resources available, a workflow will typically require
 
 Run the following to remove an existing workflow:
    
-    $ fsurf --remove --id WorkflowID
+    $ ./fsurf --remove --id WorkflowID
 
 For example, to remove a running worflow with an id `56`, type
 
