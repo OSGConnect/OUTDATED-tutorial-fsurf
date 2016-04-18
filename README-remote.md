@@ -49,7 +49,7 @@ using `--password`.  For example,
 
       ./fsurf --submit --subject MRN_3 --user myuser --password mypassword
 
-the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [https://support.opensciencegrid.org/support/tickets/new](here). 
+the argument `myuser` is your username and `mypassword` is your password for your fsurf account.  If you don't have a fsurf password, open a ticket requesting an account [here](https://support.opensciencegrid.org/support/tickets/new). 
 
 ##  Process a Scan
 
