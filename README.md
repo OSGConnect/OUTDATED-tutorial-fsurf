@@ -122,7 +122,7 @@ For example, to remove a running worflow with an id `20160119T100055-0600`, type
 This will not effect the files you have fetched previously.
 
 ## Getting Help 
-For assistance or questions, please email the OSG User Support team  at [user-support@opensciencegrid.org](mailto:user-support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
+For assistance or questions, please email the OSG User Support team  at [support@opensciencegrid.org](mailto:support@opensciencegrid.org) or visit the [help desk and community forums](http://support.opensciencegrid.org).
 
 
 
